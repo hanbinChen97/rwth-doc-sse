@@ -53,7 +53,36 @@ now human is kind of part of the system.
 ![function](mbse_images/image-3.png)
 
 # 06 - Statecharts
+transition vs actions
+
+UML Interpretation of Statecharts in Software
+• State of the automaton = set of states of the object
+• Initial state = set of object states that occur
+immediately after construction (new ...)
+• Final state does not matter, because garbage
+collection in Java “terminates” objects
+• Input characters = method call including arguments
+• Output character = result of a method execution
+ Includes attribute changes, other method calls
+• Transition = execution of a method body
+• Distinction between state diagram and object state!
+
+SysML Interpretation of Statecharts in Cyber-Physical Systems
+• State of the automaton =
+equivalence class of states of the component
+• Initial state = component states that occur at start
+• Final state normally not applicable to physical systems
+• Input = incoming discrete things and signals in a
+machine
+• Output = modified things as well as computed answers
+• Transition = operation of the CPS transforming the input
+to an adequate output using and adapting internal states
+• Statecharts cover all domains. Even though in the
+following the examples usually belong only to one
+domain.Let’s keep this in mind!
 # 06B - Statecharts 2
+
+
 # 07 - Architecture
 # 08 - Logic OCL
 # 09 - Behaviour OCL
