@@ -84,11 +84,30 @@ domain.Let’s keep this in mind!
 
 
 # 07 - Architecture
+![alt text](mbse_images/image-4.png)
+Simulation approximate imitation of the operation of a process 
+- Ticks
+
+
+
 # 08 - Logic OCL
+
+
 # 09 - Behaviour OCL
+
+
 # 10 - OD
+
+
 # 11 - Sequence Diagrams
+![alt text](image.png)
+不理解，什么是visible object。图片上哪里禁止了。
+
 # 12 - Methods
+![alt text](image-1.png)
+
+
+
 # 13 - Tests
 # 14 - Evolution
 # 15 - Digital Twin
