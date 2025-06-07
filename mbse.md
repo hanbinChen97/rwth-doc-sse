@@ -1,3 +1,9 @@
+和之前的 document-based engineering 不同，model-based engineering 是基于模型的工程。
+每个人对 document 的理解都不一样，可能会有歧义。
+我们通过进一步的抽象来消除歧义。
+model-base aligns the understanding of the system and its components.
+
+
 # 00 - Lecture Intro
 
 - The Limits of my Language Mean the Limits of my World (Wittgenstein)  
@@ -112,3 +118,5 @@ Simulation approximate imitation of the operation of a process
 # 14 - Evolution
 # 15 - Digital Twin
 # 16 - Advanced Methods
+
+

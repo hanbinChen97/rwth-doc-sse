@@ -1,16 +1,36 @@
+AST
+coco
+visitor
+symbol
+
+template
+
+
+
 Software Language Engineering
 
-
-
-1. Introduction 
-1.1. Models and Languages 
-A model (sentence of a language)
+# 1. Introduction 
 1.2. Example Language Applications 
 1.3. CD4Analysis Language 
 1.4. What is a Language?
+     Syntax ("representation")
+     Semantics (“meaning”)
+     Pragmatics (“forms of use”)
 1.5. Structure of a Language Processing Tool
+![Software Language Engineering](sle_images/Architecture.png)
+model -> AST (CoCo, Visitor, Symbol) -> Code Generation (templates)
 
-2. Parsing with Grammars
+controlscript
+workflow execution
+function library
+input/output AST 有什么区别
+model after和 before 
+
+# 2. Parsing with Grammars，generated from .mc4 files
+model -Scanner-> token with token class -Parser-> AST
+
+Tree with expression nodes
+
 This section discusses the use of grammars in parsing processes, focusing on their application in software language engineering.
 2.1. Compiler Construction – An Overview
 Provides an overview of compiler architecture, detailing the main tasks such as 
@@ -24,12 +44,12 @@ Describes the function of parsers in checking the correctness of source code aga
 Details MontiCore’s specific grammar language, highlighting how it facilitates parser generation by defining tokens, nonterminals, and their grammatical rules.
 
 
-3. Designing a Modeling Language
+# 3. Designing a Modeling Language
 • This section discusses the foundational steps in designing a modeling language, with a focus on domain-specific languages (DSLs).
 3.1. Language Design on an Example
 • Illustrates the process of designing a language using the example of modeling finite automata, starting from clarifying needs to defining syntax and deriving parsers.
 
-4. Abstract Syntax Tree
+# 4. AST，Abstract Syntax Tree
 TOP (Template Override Pattern)
 which are crucial data structures in software language engineering, utilized for representing the structure of parsed code.
 4.1. Literals
@@ -43,7 +63,7 @@ Details the runtime environment and the automatic generation of AST classes from
 4.5. ANTLR as Parser Generator
 Discusses the use of ANTLR as a tool for generating parsers based on grammar specifications, outlining how it integrates within MontiCore to produce parsers that convert code into ASTs.
 
-5. Languages: Examples, Quality, Library
+# 5. Languages: Examples, Quality, Library
 This section reviews practical examples of languages, discusses the aspects of language quality, and explains the organization and use of libraries in software language engineering.
 5.1. Language Examples
 Provides examples of languages and language components developed using MontiCore, highlighting the structure and utility of various language models and how they contribute to effective software development.
@@ -56,8 +76,7 @@ Details the core components available in the MontiCore language library, describ
 5.5. Language Component Library: Layer 2
 Explores the second layer of the MontiCore language component library, which focuses on specialized languages that extend the base components with more specific functionality tailored to particular applications or domains.
 
-6. Well-formedness Rules – Context Conditions, Visitors
-    Traversal, 
+# 6. CoCos，Well-formedness Rules – Context Conditions, Visitors Traversal, 
 6.1. Context Conditions(CoCo), well-formed
     Context Condition (CoCo) is a predicate on a CFG-correct sentence where the context is used to determine its (full) correctness.
 6.2. Error Reporting / violations
@@ -85,7 +104,7 @@ Explores the second layer of the MontiCore language component library, which foc
     
     
 
-7. Symbol Management
+# 7. Symbol Management
 7.1. Symbols
 7.2. Symbol Visibility and Scopes
 7.3. Defining Symbols with MontiCore
@@ -98,20 +117,20 @@ Explores the second layer of the MontiCore language component library, which foc
 7.A1. Symbols in Automata
 
 
-8. Generators
+# 8. Generators
 8.1. Forms of Generators
 8.2. Template-Engine FreeMarker
 8.3. MontiCore’s Freemarker API
 8.4. Some Templates Explained
 
 
-9. Advanced Generator Principles
+# 9. Advanced Generator Principles
 9.1. Integration of Handwritten Code
 9.2. Hook Points in Templates – Improving reuse
 9.3. Mixing Transformations and Hook Points
 
 
-10. Language Composition
+# 10. Language Composition
 10.1. Model Composition
 10.2. Forms of Language Operators
 10.3. Language Composition Operators
@@ -120,7 +139,7 @@ Explores the second layer of the MontiCore language component library, which foc
 10.6. Generated Compositional Infrastructure
 
 
-11. Language Composition in Depth
+# 11. Language Composition in Depth
 11.1. Symbols and Scopes allow Composition in Depth
 11.2. Symbols used across Languages (and Models)
 11.3. Symbols in the MC Library
@@ -128,7 +147,7 @@ Explores the second layer of the MontiCore language component library, which foc
 11.5. Technical Realization of Symbols used across Languages
 
 
-12. Technical Realization
+# 12. Technical Realization
 12a. Technical Foundations
 12b. Methodical Considerations
 12b.1. The Role of DSLs in Software Engineering

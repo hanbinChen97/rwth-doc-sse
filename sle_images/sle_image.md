@@ -21,3 +21,37 @@
 - **手写代码集成（Handcoding）**：在生成产物中插入手写基础实现或钩子，增强可扩展性
 - **最终输出**：文档、报告、源代码等多种形式的生成产物
 
+
+
+```mermaid
+graph TD
+    subgraph "Input"
+        Model["Model (Text)"]
+    end
+
+    subgraph "Frontend: Syntax Analysis"
+        Grammar["Grammar (.mc4)"] -- "generates" --> Parser
+        Model -- "is parsed by" --> Parser
+        Parser -- "produces" --> AST{"Abstract Syntax Tree (AST)"}
+    end
+
+    subgraph "Middle-End: Semantic Analysis"
+        AST -- "is traversed to build" --> SymbolTable["Symbol Table"]
+        AST -- "is checked by" --> CoCos["Context Conditions (CoCos)"]
+        SymbolTable -- "is used by" --> CoCos
+    end
+
+    subgraph "Backend: Generation"
+        AST -- "is input for" --> Generator
+        Templates["Templates (.ftl)"] -- "are used by" --> Generator
+        Generator -- "produces" --> GeneratedCode["Generated Code (e.g., Java)"]
+    end
+
+    subgraph "Final Product"
+        GeneratedCode -- "is combined with" --> FinalApplication
+        HandwrittenCode["Hand-written Code"] -- "is combined with" --> FinalApplication("Final Application")
+    end
+
+    classDef core-concept fill:#E6F3FF,stroke:#0066CC,stroke-width:2px;
+    class AST,SymbolTable,Generator core-concept;
+````

@@ -23,6 +23,4 @@ protocol
 
 
 
-
-
 # Software Language Engineering (Prof. Rumpe)
