@@ -1,8 +1,13 @@
+
+parsing：
+- Scanner then Parser
+- Parse tree
+
 AST
+
 coco
 visitor
 symbol
-
 template
 
 
@@ -36,24 +41,38 @@ This section discusses the use of grammars in parsing processes, focusing on the
 Provides an overview of compiler architecture, detailing the main tasks such as 
     reading and
     verifying source code, and generating target language code.
+
 2.2. Scanner
 Explores the role of scanners in compilers, explaining how they break down source code into tokens and filter out unnecessary elements like whitespace and comments.
+
 2.3. Parser
 Describes the function of parsers in checking the correctness of source code against specified grammars, generating understandable error messages, and producing Abstract Syntax Trees (ASTs).
+
 2.4. MontiCore’s Grammar Language
 Details MontiCore’s specific grammar language, highlighting how it facilitates parser generation by defining tokens, nonterminals, and their grammatical rules.
+![alt text](sle_images/parsing.png)
 
 
-# 3. Designing a Modeling Language
+# 3. Designing a Modeling Language, 
 • This section discusses the foundational steps in designing a modeling language, with a focus on domain-specific languages (DSLs).
 3.1. Language Design on an Example
 • Illustrates the process of designing a language using the example of modeling finite automata, starting from clarifying needs to defining syntax and deriving parsers.
+
+![alt text](sle_images/ast.png)
+AST is a (containment) tree
+- nonterminals are nodes / objects
+- terminals are leaves / attributes  
+
+AST doesn't miss information, like addition, but makes it as an expression node.
+
+
 
 # 4. AST，Abstract Syntax Tree
 TOP (Template Override Pattern)
 which are crucial data structures in software language engineering, utilized for representing the structure of parsed code.
 4.1. Literals
-Explores how literals are implemented in grammars, detailing specific tokens and fragments used to define simple data types and their conversion from strings to values.
+Explores how literals are implemented in grammars, detailing specific tokens and fragments used to define simple data types and their conversion from strings to values.  
+
 4.2. Productions/ components
 Describes how productions in a grammar are converted into structured components within an AST, emphasizing the handling of various grammatical constructs like terminals, nonterminals, and optional elements.
 4.3. Extending the AST
@@ -62,6 +81,7 @@ Focuses on methods to extend the AST by adding new attributes or methods without
 Details the runtime environment and the automatic generation of AST classes from grammars, explaining the roles of these components in processing and executing the language structures defined in the grammar.
 4.5. ANTLR as Parser Generator
 Discusses the use of ANTLR as a tool for generating parsers based on grammar specifications, outlining how it integrates within MontiCore to produce parsers that convert code into ASTs.
+
 
 # 5. Languages: Examples, Quality, Library
 This section reviews practical examples of languages, discusses the aspects of language quality, and explains the organization and use of libraries in software language engineering.
