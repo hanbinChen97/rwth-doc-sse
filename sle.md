@@ -1,17 +1,87 @@
+```mermaid
+mindmap
+  root((SLE: Software Language Engineering))
+    Introduction
+      Language: Syntax, Semantics, Pragmatics
+      DSL vs GPL
+      Language Design Principles
+    Part 1: Language Definition
+      Syntax Definition
+        Grammars
+          Context Free Grammars CFG
+          BNF & EBNF Notation
+          Derivations & Parse Trees
+          Ambiguity
+        Abstract Syntax Tree AST
+          Concrete vs Abstract Syntax
+          AST Nodes & Structure
+          Visitor Pattern for Traversal
+      Semantic Definition
+        Static Semantics & Well formedness
+        Dynamic Semantics & Execution Meaning
+        Attribute Grammars
+
+        
+    Part 2: Language Processing
+      Syntactic Analysis Parsing
+        Top Down Parsing
+          Recursive Descent
+          LLk Parsing, LL1
+          FIRST & FOLLOW Sets
+        Bottom Up Parsing
+          Shift Reduce
+          LRk Parsing, LR0, SLR1
+      Semantic Analysis
+        Symbol Table
+          Purpose: Store identifier info
+          Scope Management
+        Type Checking
+          Type System & Rules
+          Static vs Dynamic Typing
+      Interpretation & Generation
+        Interpreter
+          AST Traversal with Visitor
+        Code Generation
+          Intermediate Representation IR
+          Template based Generation
+    Part 3: Language Workbenches
+      Model Driven Engineering MDE
+        Models & Metamodels, MOF
+        Model Transformations: M2T, M2M
+      MontiCore
+        Grammar based language definition
+        Automated generation of
+          Parsers
+          ASTs
+          Symbol Tables
+          Visitors
+        Groovy for infrastructure
+        Freemarker for Code Generation
+```
+
+Mill
 
 parsing：
 - Scanner then Parser
 - Parse tree
 
 AST
+- contrains only essential information, semantics context
 
 coco
-visitor
-symbol
-template
+visitor，Traverser
+traverser.add(visitor)
+ast.accept(traverser)
+
+Genitor
+symbol, template, resolve, trafo
+- Artifact Scope
+- global scope
+- buttomUp resolve
 
 
 
+![Software Language Engineering](Architecture.png)
 Software Language Engineering
 
 # 1. Introduction 
@@ -22,7 +92,6 @@ Software Language Engineering
      Semantics (“meaning”)
      Pragmatics (“forms of use”)
 1.5. Structure of a Language Processing Tool
-![Software Language Engineering](sle_images/Architecture.png)
 model -> AST (CoCo, Visitor, Symbol) -> Code Generation (templates)
 
 controlscript
@@ -30,6 +99,13 @@ workflow execution
 function library
 input/output AST 有什么区别
 model after和 before 
+
+grammar:
+- production:  nonterminal = definition(body)
+
+
+
+
 
 # 2. Parsing with Grammars，generated from .mc4 files
 model -Scanner-> token with token class -Parser-> AST
@@ -50,7 +126,7 @@ Describes the function of parsers in checking the correctness of source code aga
 
 2.4. MontiCore’s Grammar Language
 Details MontiCore’s specific grammar language, highlighting how it facilitates parser generation by defining tokens, nonterminals, and their grammatical rules.
-![alt text](sle_images/parsing.png)
+![alt text](parsing.png)
 
 
 # 3. Designing a Modeling Language, 
@@ -58,7 +134,7 @@ Details MontiCore’s specific grammar language, highlighting how it facilitates
 3.1. Language Design on an Example
 • Illustrates the process of designing a language using the example of modeling finite automata, starting from clarifying needs to defining syntax and deriving parsers.
 
-![alt text](sle_images/ast.png)
+![alt text](ast.png)
 AST is a (containment) tree
 - nonterminals are nodes / objects
 - terminals are leaves / attributes  
@@ -67,8 +143,12 @@ AST doesn't miss information, like addition, but makes it as an expression node.
 
 
 
-# 4. AST，Abstract Syntax Tree
-TOP (Template Override Pattern)
+# 4. AST，Abstract Syntax Tree， CFG
+AST classes can be automatically derived from a grammar.  
+AST Objects structure is from text file.
+
+
+TOP (Template Override Pattern)  
 which are crucial data structures in software language engineering, utilized for representing the structure of parsed code.
 4.1. Literals
 Explores how literals are implemented in grammars, detailing specific tokens and fragments used to define simple data types and their conversion from strings to values.  
@@ -83,16 +163,19 @@ Details the runtime environment and the automatic generation of AST classes from
 Discusses the use of ANTLR as a tool for generating parsers based on grammar specifications, outlining how it integrates within MontiCore to produce parsers that convert code into ASTs.
 
 
-# 5. Languages: Examples, Quality, Library
-This section reviews practical examples of languages, discusses the aspects of language quality, and explains the organization and use of libraries in software language engineering.
+## 5. Languages: Examples, Quality, Library
 5.1. Language Examples
 Provides examples of languages and language components developed using MontiCore, highlighting the structure and utility of various language models and how they contribute to effective software development.
+
 5.2. Language Quality
 Explores what constitutes a high-quality language, detailing the criteria and metrics used to assess language designs and their implementations in tools and systems.
+
 5.3. The Library Concept
 Explains the concept of a language component library in MontiCore, which facilitates the reuse of language components across different projects, enhancing modularity and efficiency in language development.
+
 5.4. Core Language Component Library
 Details the core components available in the MontiCore language library, describing how these fundamental elements are used to build more complex language structures and applications.
+
 5.5. Language Component Library: Layer 2
 Explores the second layer of the MontiCore language component library, which focuses on specialized languages that extend the base components with more specific functionality tailored to particular applications or domains.
 
@@ -122,7 +205,7 @@ Explores the second layer of the MontiCore language component library, which foc
     XXX.mc4
     xxxHandler
     
-    
+
 
 # 7. Symbol Management
 7.1. Symbols
@@ -135,6 +218,8 @@ Explores the second layer of the MontiCore language component library, which foc
 7.8. On the Dual Role of Libraries
 7.9. Round Up
 7.A1. Symbols in Automata
+
+
 
 
 # 8. Generators
@@ -165,6 +250,7 @@ Explores the second layer of the MontiCore language component library, which foc
 11.3. Symbols in the MC Library
 11.4. Example MontiArc
 11.5. Technical Realization of Symbols used across Languages
+
 
 
 # 12. Technical Realization

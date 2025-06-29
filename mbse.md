@@ -1,7 +1,7 @@
-和之前的 document-based engineering 不同，model-based engineering 是基于模型的工程。
-每个人对 document 的理解都不一样，可能会有歧义。
+和之前的 document-based engineering 不同，model-based engineering 是基于模型的工程。  
+每个人对 document 的理解都不一样，可能会有歧义。  
 我们通过进一步的抽象来消除歧义。
-model-base aligns the understanding of the system and its components.
+model-based aligns the understanding of the system and its components.
 
 
 # 00 - Lecture Intro
@@ -13,7 +13,7 @@ model-base aligns the understanding of the system and its components.
 
 ## Theory
 
-A formal **theory** is syntactic in nature.  
+A formal **theory** is syntactic in nature.    
  Thus a theory comes with an underlying **language**  
 Modelling languages enable to make models explicit and manageable
 - rule defined, e.g. 人不能吃电风扇。
